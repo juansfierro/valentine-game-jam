@@ -2,13 +2,13 @@ extends Area2D
 
 class_name Bullet
 
-@export var damage: float
-@export var speed: float
+@export var damage: int
+@export var speed: int
 
 var direction: Vector2
 var explosion_scene = preload("res://scenes/explosion.tscn")
 
-func _init(dmg: float = 100.0, spd: float = 10.0):
+func _init(dmg: int = 100, spd: int = 10):
 	damage = dmg
 	speed = spd
 
@@ -18,7 +18,7 @@ func _physics_process(_delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	explode()
 	if body.is_in_group("alive"):
-		body.take_damage(100.0)
+		body.take_damage(100)
 
 func explode() -> void:
 	var explosion = explosion_scene.instantiate()

@@ -2,13 +2,13 @@ extends CharacterBody2D
 
 class_name Alive
 
-@export var max_health: float
-@export var speed: float
-@export var damage: float
+@export var max_health: int
+@export var speed: int
+@export var damage: int
 
-var current_health: float
+var current_health: int
 
-func _init(health: float = 100.0, spd: float = 50.0, dmg: float = 10.0) -> void:
+func _init(health: int = 100, spd: int = 50, dmg: int = 10) -> void:
 	max_health = health
 	speed = spd
 	damage = dmg
@@ -16,7 +16,7 @@ func _init(health: float = 100.0, spd: float = 50.0, dmg: float = 10.0) -> void:
 func _ready() -> void:
 	current_health = max_health
 
-func take_damage(amount: float) -> void:
+func take_damage(amount: int) -> void:
 	current_health -= amount
 	
 	if current_health <= 0:
