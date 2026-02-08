@@ -26,6 +26,8 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 enemies=""
+player=""
+alive="Entities with the \"health\" parameter"
 
 [input]
 

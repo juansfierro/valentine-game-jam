@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvnqhecljptxo"]
+[gd_scene format=3 uid="uid://bvnqhecljptxo"]
 
 [ext_resource type="PackedScene" uid="uid://cwu3x5ciplkqh" path="res://scenes/player.tscn" id="1_wg05u"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_xrg4b"]
+[ext_resource type="Script" uid="uid://7pgxensf4ftc" path="res://scripts/game.gd" id="1_xrg4b"]
 
 [sub_resource type="Environment" id="Environment_amyqu"]
 background_mode = 3
@@ -21,31 +21,31 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iddry"]
 distance = -648.0
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1533908711]
 script = ExtResource("1_xrg4b")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=861482779]
 environment = SubResource("Environment_amyqu")
 
-[node name="Player" parent="." instance=ExtResource("1_wg05u")]
+[node name="Player" parent="." unique_id=2011689584 instance=ExtResource("1_wg05u")]
 position = Vector2(563, 342)
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=2108238989]
 
-[node name="Top" type="CollisionShape2D" parent="Walls"]
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=974507553]
 shape = SubResource("WorldBoundaryShape2D_lonrp")
 
-[node name="Left" type="CollisionShape2D" parent="Walls"]
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=75893480]
 shape = SubResource("WorldBoundaryShape2D_yc7s2")
 
-[node name="Right" type="CollisionShape2D" parent="Walls"]
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=1881692030]
 position = Vector2(1151, 1)
 shape = SubResource("WorldBoundaryShape2D_j7b27")
 
-[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=648122802]
 shape = SubResource("WorldBoundaryShape2D_iddry")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1663785519]
 wait_time = 0.5
 autostart = true
 
