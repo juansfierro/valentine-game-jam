@@ -19,6 +19,10 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=144
 
+[autoload]
+
+Events="*uid://byhdkyymo4jeg"
+
 [display]
 
 window/stretch/mode="canvas_items"

@@ -15,4 +15,10 @@ shape = SubResource("CircleShape2D_0q07k")
 color = Color(0.599833, 1, 0.51, 1)
 polygon = PackedVector2Array(0, -10, 4, -9, 8, -6, 10, -3, 10, 2, 8, 6, 5, 9, 0, 10, -4, 9, -7, 7, -9, 4, -10, 0, -9, -4, -6, -8)
 
+[node name="Timer" type="Timer" parent="." unique_id=1575749964]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

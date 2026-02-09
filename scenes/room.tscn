@@ -1,38 +1,42 @@
 [gd_scene format=3 uid="uid://2575ak0tme15"]
 
 [ext_resource type="PackedScene" uid="uid://f43dpnooicpm" path="res://scenes/door.tscn" id="1_36trf"]
+[ext_resource type="Script" uid="uid://dg2vt5tbq5qk3" path="res://scripts/room.gd" id="1_ffxv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1tnb"]
 size = Vector2(1024, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffxv4"]
-size = Vector2(80, 48)
+size = Vector2(80, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85yof"]
-size = Vector2(80, 56)
+size = Vector2(80, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14vil"]
-size = Vector2(48, 80)
+size = Vector2(8, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxe34"]
-size = Vector2(48, 80)
+size = Vector2(8, 80)
 
 [node name="room" type="Node2D" unique_id=1061179097]
+script = ExtResource("1_ffxv4")
 
 [node name="player_detector" type="Area2D" parent="." unique_id=1203455891]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detector" unique_id=1770700518]
 position = Vector2(576, 320)
 shape = SubResource("RectangleShape2D_f1tnb")
 
-[node name="walls" type="Area2D" parent="." unique_id=2062781458]
+[node name="walls" type="StaticBody2D" parent="." unique_id=677044109]
 
 [node name="top_left" type="CollisionPolygon2D" parent="walls" unique_id=397945751]
-polygon = PackedVector2Array(0, 0, 64, 64, 536, 64, 536, 0)
+polygon = PackedVector2Array(0, -8, 64, 64, 536, 64, 536, -8)
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/top_left" unique_id=1724302987]
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
-polygon = PackedVector2Array(0, 0, 64, 64, 536, 64, 536, 0)
+polygon = PackedVector2Array(0, -8, 64, 64, 536, 64, 536, -8)
 
 [node name="leftside_top" type="CollisionPolygon2D" parent="walls" unique_id=1911100212]
 position = Vector2(-1.9073486e-06, 0.59999084)
@@ -43,7 +47,7 @@ polygon = PackedVector2Array(1.9073489e-06, 277.23413, 64.00001, 277.23413, 64.0
 position = Vector2(1.9073489e-06, -0.5953398)
 scale = Vector2(1.0000001, 0.9922481)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
-polygon = PackedVector2Array(0, 0, 64, 64, 64, 280, 0, 280)
+polygon = PackedVector2Array(0, -8, 64, 64, 64, 280, 0, 280)
 
 [node name="leftside_bottom" type="CollisionPolygon2D" parent="walls" unique_id=947851410]
 position = Vector2(0, 352)
@@ -65,7 +69,7 @@ polygon = PackedVector2Array(1.9073489e-06, 277.23413, 64.00001, 277.23413, 64, 
 position = Vector2(0, -79.37985)
 scale = Vector2(1.0000001, 0.9922481)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
-polygon = PackedVector2Array(0, 144, 64, 80.00001, 64, 360, 0, 360)
+polygon = PackedVector2Array(0, 144, 64, 72.00001, 64, 360, 0, 360)
 
 [node name="rightside_bottom" type="CollisionPolygon2D" parent="walls" unique_id=137741556]
 position = Vector2(1088, 352.00003)
@@ -81,13 +85,13 @@ polygon = PackedVector2Array(0, 656, 64, 728, 64, 440.00003, 0, 440.00003)
 [node name="top_right" type="CollisionPolygon2D" parent="walls" unique_id=1584379158]
 position = Vector2(615.85, -1.9073486e-06)
 scale = Vector2(0.9990672, 0.99999994)
-polygon = PackedVector2Array(0, 0, 0.15014648, 64.00001, 472.59088, 64.00001, 536, 0)
+polygon = PackedVector2Array(0.15014648, -7.999999, 0.15014648, 64.00001, 472.59088, 64.00001, 536.6506, -7.999999)
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/top_right" unique_id=908546021]
 position = Vector2(0.15014648, -440.00003)
 scale = Vector2(1.0009336, 1.0000001)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
-polygon = PackedVector2Array(0, 504, 472.00006, 504, 536.00006, 440, 0, 440.00003)
+polygon = PackedVector2Array(0, 504, 472.00006, 504, 536.00006, 432, 0, 432)
 
 [node name="bottom_left" type="CollisionPolygon2D" parent="walls" unique_id=1256324450]
 position = Vector2(0.80000305, 579.2)
@@ -111,26 +115,48 @@ color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(1152.0002, 512, 616.0001, 512, 616.0001, 440.00003, 1088.0002, 440.00003)
 
 [node name="door_top" parent="." unique_id=866548211 instance=ExtResource("1_36trf")]
+position = Vector2(576, 24)
+
+[node name="Marker2D" parent="door_top" index="0" unique_id=728285033]
+position = Vector2(0, -200)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door_top" unique_id=2124573262]
-position = Vector2(576, 24)
+position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_ffxv4")
 
 [node name="door_bottom" parent="." unique_id=1424390965 instance=ExtResource("1_36trf")]
 position = Vector2(576, 616)
 
+[node name="Marker2D" parent="door_bottom" index="0" unique_id=728285033]
+position = Vector2(0, 200)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door_bottom" unique_id=1638794214]
-position = Vector2(0, 4)
+position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_85yof")
 
 [node name="door_left" parent="." unique_id=1685792906 instance=ExtResource("1_36trf")]
 position = Vector2(24, 320)
 
+[node name="Marker2D" parent="door_left" index="0" unique_id=728285033]
+position = Vector2(-200, 0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door_left" unique_id=1648907614]
+position = Vector2(-20, 0)
 shape = SubResource("RectangleShape2D_14vil")
 
 [node name="door_right" parent="." unique_id=942738038 instance=ExtResource("1_36trf")]
 position = Vector2(1128, 320)
 
+[node name="Marker2D" parent="door_right" index="0" unique_id=728285033]
+position = Vector2(200, 0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door_right" unique_id=353422553]
+position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_jxe34")
+
+[connection signal="body_entered" from="player_detector" to="." method="_on_player_detector_body_entered"]
+
+[editable path="door_top"]
+[editable path="door_bottom"]
+[editable path="door_left"]
+[editable path="door_right"]

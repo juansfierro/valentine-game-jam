@@ -17,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	explode()
+	queue_free()
 	if body.is_in_group("alive"):
 		body.take_damage(100)
 
@@ -27,3 +28,7 @@ func explode() -> void:
 	explosion.lifetime = randf_range(0.5, 0.7)
 
 	$/root/Game.add_child(explosion)
+
+func _on_timer_timeout() -> void:
+	print("Removed bullet")
+	queue_free()

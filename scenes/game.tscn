@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cwu3x5ciplkqh" path="res://scenes/player.tscn" id="1_wg05u"]
 [ext_resource type="Script" uid="uid://7pgxensf4ftc" path="res://scripts/game.gd" id="1_xrg4b"]
 [ext_resource type="PackedScene" uid="uid://2575ak0tme15" path="res://scenes/room.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://dtqfax47ysurq" path="res://scripts/camera.gd" id="4_lbhrr"]
 
 [sub_resource type="Environment" id="Environment_amyqu"]
 background_mode = 3
@@ -30,5 +31,11 @@ position = Vector2(1216, 0)
 
 [node name="room3" parent="." unique_id=1281480808 instance=ExtResource("3_lnu2h")]
 position = Vector2(0, -712)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=957937674]
+offset = Vector2(576, 320)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("4_lbhrr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
