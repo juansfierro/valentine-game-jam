@@ -32,6 +32,7 @@ window/stretch/mode="canvas_items"
 enemies=""
 player=""
 alive="Entities with the \"health\" parameter"
+bullets=""
 
 [input]
 

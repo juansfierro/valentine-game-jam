@@ -6,8 +6,8 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 @onready var is_reloading = false
 @onready var shooty_part = $ShootyPart
 
-func _init(health: int = 100, spd: int = 200, dmg: int = 100.0):
-	super._init(health, spd, dmg)
+func _init(health: int = 100, spd: int = 200):
+	super._init(health, spd)
 
 func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())

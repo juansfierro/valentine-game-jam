@@ -4,14 +4,12 @@ class_name Alive
 
 @export var max_health: int
 @export var speed: int
-@export var damage: int
 
 var current_health: int
 
-func _init(health: int = 100, spd: int = 50, dmg: int = 10) -> void:
+func _init(health: int = 100, spd: int = 50) -> void:
 	max_health = health
 	speed = spd
-	damage = dmg
 
 func _ready() -> void:
 	current_health = max_health
