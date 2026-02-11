@@ -6,6 +6,7 @@
 radius = 10.0499
 
 [node name="Bullet" type="Area2D" unique_id=1282777845 groups=["bullets"]]
+collision_mask = 19
 script = ExtResource("1_r20t4")
 speed = 100
 

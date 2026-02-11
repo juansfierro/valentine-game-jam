@@ -37,7 +37,7 @@ func wake_up() -> void: #wake up wake up wake up wake up wake up kawe up wake up
 func _physics_process(delta: float) -> void:
 	if not is_awake or not player:
 		return
-	look_at(player.global_position - global_position)
+	look_at(player.global_position)
 	maintain_distance()
 	
 	if can_shoot:
