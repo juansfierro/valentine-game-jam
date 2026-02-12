@@ -24,94 +24,95 @@ script = ExtResource("1_ffxv4")
 
 [node name="player_detector" type="Area2D" parent="." unique_id=1203455891]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detector" unique_id=1770700518]
 position = Vector2(576, 320)
 shape = SubResource("RectangleShape2D_f1tnb")
 
-[node name="walls" type="StaticBody2D" parent="." unique_id=677044109]
+[node name="walls" type="StaticBody2D" parent="." unique_id=677044109 groups=["walls"]]
+collision_mask = 0
 
-[node name="top_left" type="CollisionPolygon2D" parent="walls" unique_id=397945751]
+[node name="top_left" type="CollisionPolygon2D" parent="walls" unique_id=397945751 groups=["walls"]]
 polygon = PackedVector2Array(0, -8, 64, 64, 536, 64, 536, -8)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/top_left" unique_id=1724302987]
+[node name="Polygon2D" type="Polygon2D" parent="walls/top_left" unique_id=1724302987 groups=["walls"]]
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(0, -8, 64, 64, 536, 64, 536, -8)
 
-[node name="leftside_top" type="CollisionPolygon2D" parent="walls" unique_id=1911100212]
+[node name="leftside_top" type="CollisionPolygon2D" parent="walls" unique_id=1911100212 groups=["walls"]]
 position = Vector2(-1.9073486e-06, 0.59999084)
 scale = Vector2(0.99999994, 1.0078125)
-polygon = PackedVector2Array(1.9073489e-06, 277.23413, 64.00001, 277.23413, 64.00001, 62.90854, 1.9073489e-06, -0.5953398)
+polygon = PackedVector2Array(1.9073489e-06, 277.23413, 64.00001, 277.23413, 64.00001, 62.90854, 1.9073489e-06, -8.533325)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/leftside_top" unique_id=1944739751]
+[node name="Polygon2D2" type="Polygon2D" parent="walls/leftside_top" unique_id=1944739751 groups=["walls"]]
 position = Vector2(1.9073489e-06, -0.5953398)
 scale = Vector2(1.0000001, 0.9922481)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(0, -8, 64, 64, 64, 280, 0, 280)
 
-[node name="leftside_bottom" type="CollisionPolygon2D" parent="walls" unique_id=947851410]
+[node name="leftside_bottom" type="CollisionPolygon2D" parent="walls" unique_id=947851410 groups=["walls"]]
 position = Vector2(0, 352)
 scale = Vector2(0.99999994, 1.0078125)
 polygon = PackedVector2Array(0, 293.70547, 64.00001, 222.26358, 64.00001, 7.9379883, 0, 7.9379883)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/leftside_bottom" unique_id=1513472675]
+[node name="Polygon2D3" type="Polygon2D" parent="walls/leftside_bottom" unique_id=1513472675 groups=["walls"]]
 position = Vector2(0, -349.27133)
 scale = Vector2(1.0000001, 0.9922481)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(0, 648, 64, 576, 64, 360, 0, 360)
 
-[node name="rightside_top" type="CollisionPolygon2D" parent="walls" unique_id=799628074]
+[node name="rightside_top" type="CollisionPolygon2D" parent="walls" unique_id=799628074 groups=["walls"]]
 position = Vector2(1088, 0)
 scale = Vector2(0.99999994, 1.0078125)
 polygon = PackedVector2Array(1.9073489e-06, 277.23413, 64.00001, 277.23413, 64, 0, 0, 63.50388)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/rightside_top" unique_id=1413123290]
-position = Vector2(0, -79.37985)
+[node name="Polygon2D4" type="Polygon2D" parent="walls/rightside_top" unique_id=1413123290 groups=["walls"]]
+position = Vector2(0, -79.37986)
 scale = Vector2(1.0000001, 0.9922481)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(0, 144, 64, 72.00001, 64, 360, 0, 360)
 
-[node name="rightside_bottom" type="CollisionPolygon2D" parent="walls" unique_id=137741556]
+[node name="rightside_bottom" type="CollisionPolygon2D" parent="walls" unique_id=137741556 groups=["walls"]]
 position = Vector2(1088, 352.00003)
 scale = Vector2(0.99999994, 1.0078125)
 polygon = PackedVector2Array(0, 222.26355, 64, 293.70544, 64.00001, 7.9379883, 0, 7.9379883)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/rightside_bottom" unique_id=766779896]
-position = Vector2(0, -428.6512)
+[node name="Polygon2D5" type="Polygon2D" parent="walls/rightside_bottom" unique_id=766779896 groups=["walls"]]
+position = Vector2(0, -428.65125)
 scale = Vector2(1.0000001, 0.9922481)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(0, 656, 64, 728, 64, 440.00003, 0, 440.00003)
 
-[node name="top_right" type="CollisionPolygon2D" parent="walls" unique_id=1584379158]
-position = Vector2(615.85, -1.9073486e-06)
-scale = Vector2(0.9990672, 0.99999994)
+[node name="top_right" type="CollisionPolygon2D" parent="walls" unique_id=1584379158 groups=["walls"]]
+position = Vector2(615.85, 0)
+scale = Vector2(0.99906725, 0.99999994)
 polygon = PackedVector2Array(0.15014648, -7.999999, 0.15014648, 64.00001, 472.59088, 64.00001, 536.6506, -7.999999)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/top_right" unique_id=908546021]
-position = Vector2(0.15014648, -440.00003)
-scale = Vector2(1.0009336, 1.0000001)
+[node name="Polygon2D6" type="Polygon2D" parent="walls/top_right" unique_id=908546021 groups=["walls"]]
+position = Vector2(0.15020752, -440)
+scale = Vector2(1.0009334, 1)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(0, 504, 472.00006, 504, 536.00006, 432, 0, 432)
 
-[node name="bottom_left" type="CollisionPolygon2D" parent="walls" unique_id=1256324450]
-position = Vector2(0.80000305, 579.2)
+[node name="bottom_left" type="CollisionPolygon2D" parent="walls" unique_id=1256324450 groups=["walls"]]
+position = Vector2(0.8000031, 579.2)
 polygon = PackedVector2Array(63.199997, -3.2000122, -0.80000305, 68.79999, 535.2, 68.79999, 535.2, -3.2000122)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/bottom_left" unique_id=590595952]
-position = Vector2(-0.7999878, -443.2)
+[node name="Polygon2D7" type="Polygon2D" parent="walls/bottom_left" unique_id=590595952 groups=["walls"]]
+position = Vector2(-0.79998785, -443.2)
 scale = Vector2(0.99999994, 1)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(-1.525879e-05, 512, 536.00006, 512, 536.00006, 440, 63.999992, 440)
 
-[node name="bottom_right" type="CollisionPolygon2D" parent="walls" unique_id=1844644392]
+[node name="bottom_right" type="CollisionPolygon2D" parent="walls" unique_id=1844644392 groups=["walls"]]
 position = Vector2(616.64996, 579.2)
-scale = Vector2(0.9990672, 0.99999994)
+scale = Vector2(0.99906725, 0.99999994)
 polygon = PackedVector2Array(-0.65057373, -3.2000122, -0.65057373, 68.79999, 535.84985, 68.79999, 471.79016, -3.2000122)
 
-[node name="Polygon2D" type="Polygon2D" parent="walls/bottom_right" unique_id=2031869127]
-position = Vector2(-617.2257, -443.20007)
-scale = Vector2(1.0009335, 1.0000001)
+[node name="Polygon2D8" type="Polygon2D" parent="walls/bottom_right" unique_id=2031869127 groups=["walls"]]
+position = Vector2(-617.22565, -443.20004)
+scale = Vector2(1.0009333, 1)
 color = Color(0.34781694, 0.34781697, 0.3478169, 1)
 polygon = PackedVector2Array(1152.0002, 512, 616.0001, 512, 616.0001, 440.00003, 1088.0002, 440.00003)
 

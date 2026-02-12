@@ -8,6 +8,7 @@ radius = 23.0
 height = 74.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=2112688769 groups=["alive", "enemies"]]
+collision_layer = 2
 script = ExtResource("1_aonwj")
 bullet_scene = ExtResource("2_md0e3")
 min_distance_from_player = 50.0

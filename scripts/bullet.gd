@@ -10,6 +10,7 @@ class_name Bullet
 var direction: Vector2
 var pierced_bodies: Array = [] #Tracks how many enemies have been pierced.
 var explosion_scene = preload("res://scenes/explosion.tscn")
+var shooter: Node2D = null
 
 func _ready() -> void:
 	#Remember to add each new bullet to the bullet group.
@@ -22,15 +23,24 @@ func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
+	if body == shooter:
+		return
+	
+	if body.is_in_group("walls"):
+		on_destroyed()
+		queue_free()
+		return
+	
 	if body in pierced_bodies:
 		return
+		
 	if body.is_in_group("alive"):
 		on_hit_target(body)
 		pierced_bodies.append(body)
 		
 		if pierced_bodies.size() > pierce_count:
 			on_destroyed()
-			queue_free()
+			queue_free.call_deferred()
 
 func on_hit_target(body: Node2D) -> void:
 	body.take_damage(damage)

@@ -66,6 +66,7 @@ func shoot() -> void:
 	var bullet = bullet_scene.instantiate()
 	bullet.direction = (player.global_position - global_position).normalized()
 	bullet.global_position = shooty_part.global_position
+	bullet.shooter = self
 	
 	get_tree().root.get_node("Game").add_child(bullet)
 

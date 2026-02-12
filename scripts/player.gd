@@ -6,6 +6,7 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 @onready var is_reloading = false
 @onready var shooty_part = $ShootyPart
 
+
 func _init(health: int = 100, spd: int = 200):
 	super._init(health, spd)
 
@@ -25,15 +26,14 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
+func take_damage(amount: int) -> void:
+	print("Took damage ", amount, "=", current_health)
+	current_health -= amount
 	
-		if collision.get_collider().is_in_group("enemies"):
-			if current_health > 0:
-				take_damage(20)
-				print(current_health)
-			else:
-				die()
+	if current_health <= 0:
+		die.call_deferred()
+	else:
+		flash_red()
 
 func die() -> void:
 	if not is_reloading:

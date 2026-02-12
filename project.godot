@@ -33,6 +33,7 @@ enemies=""
 player=""
 alive="Entities with the \"health\" parameter"
 bullets=""
+walls=""
 
 [input]
 
